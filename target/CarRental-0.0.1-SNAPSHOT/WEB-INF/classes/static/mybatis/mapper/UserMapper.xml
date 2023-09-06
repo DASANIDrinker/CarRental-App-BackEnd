@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liuyuesi.demo.mapper.UserMapper">
+    
+    <select id = "findUserByOpenId" parameterType = "String" resultType = "com.liuyuesi.demo.entity.User">
+    	select * from user where open_id = #{openId}
+    </select>
+    
+    <select id = "findUserByAccessToken" parameterType = "int" resultType = "com.liuyuesi.demo.entity.User">
+    	select * from user where access_token = #{value}
+    </select>
+    
+    
+</mapper>

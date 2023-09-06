@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liuyuesi.demo.mapper.VehicleMapper">
+    
+    <select id = "checkTypeIsFull" parameterType = "int" resultType="int">
+    	select count(vehicle_id) from vehicle
+    	<where>
+    		<if test="typeId != null">
+    			vehicle_type_id = #{typeId}
+    		</if>
+    	</where>
+    	AND is_occupied = ${false}
+    </select>
+    
+   <!--<update id="updateOccupied" parameterType = "com.liuyuesi.demo.entity.Vehicle">
+    	<selectKey resultType="int" keyColumn = "vehicle_id" keyProperty = "vehicleId" order = "AFTER">
+    		select vehicle_id from vehicle where vehicle_id = #{vehicleId}		
+    	</selectKey>
+    	update vehicle
+    	<set>
+    		is_occupied = ${true}
+    	</set>
+    	where vehicle_id = #{vehicleId}
+    </update> --> 
+    
+</mapper>
